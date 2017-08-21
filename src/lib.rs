@@ -630,7 +630,7 @@ macro_rules! posit {
                 }
 
                 let regime = (s_e >> es) as i8;
-                let exponent = (s_e - i32(regime) * (1 << es)) as $bits;
+                let exponent = (s_e & es as i32) as $bits;
 
                 let regime_size = cmp::max(-regime + 1, regime + 2) as u8;
                 let regime_mask = (1 << regime_size) - 1;
